@@ -1,3 +1,3 @@
-# Pili Concept App
+# Pili Concept
 
 by RM!

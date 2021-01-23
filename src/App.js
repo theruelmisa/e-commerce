@@ -1,10 +1,19 @@
 import React from 'react';
+import GlobalStyles from './globalStyles';
+import { 
+    Navbar, 
+    Products 
+} from './components';
 
 const App = () => {
     return (
-        <div>
-            <h1>Pili Concept</h1>
-        </div>
+        <>
+            <GlobalStyles />
+            <div>
+                <Navbar />
+                <Products />
+            </div>
+        </>
     )
 }
 
