@@ -1,19 +1,31 @@
 import React from 'react';
-import { MdShoppingCart } from 'react-icons/md'
+import { AppBar, Toolbar, IconButton, Badge, Menu, MenuItem, Typography } from '@material-ui/core';
+import { ShoppingCart } from '@material-ui/icons';
+import logo from '../../assets/pili_logo.png'
+import useStyles from './styles';
 
 const Navbar = () => {
+    const classes = useStyles();
+
     return (
         <>
-            <div>
-                <h1>Pili Concept Logo</h1>
-                <button type="click">
-                    <MdShoppingCart />
-                </button>
-            </div>
+            <AppBar position="fixed" className={ classes.appBar } color="inherit">
+                <Toolbar>
+                    <Typography variant="h6" className={ classes.title } color="inherit" >
+                        <img src={logo} alt="Pili" height="50px" className={ classes.image } />
+                    </Typography>
+                    <div className={ classes.grow } />
+                    <div className={ classes.button }>
+                        <IconButton aria-label="Show cart items" color="inherit">
+                            <Badge badgeContent={2} color="secondary">
+                                <ShoppingCart />
+                            </Badge>
+                        </IconButton>
+                    </div>
+                </Toolbar>
+            </AppBar>
         </>
     )
 }
 
 export default Navbar;
-
-// Navbar area. Flex, spacebetween. button should have some notification of how many items are in cart (like in typical e-commerce)

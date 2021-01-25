@@ -1,20 +1,35 @@
-import React from 'react';
-import GlobalStyles from './globalStyles';
-import { 
-    Navbar, 
-    Products 
+import React, { useState, useEffect } from 'react';
+import { commerce } from './lib/commerce';
+import {  
+    Navbar,
+    Products
 } from './components';
 
 const App = () => {
+    const [ products, setProducts ] = useState([]);
+
+    useEffect( () => {
+        fetchProducts();
+    }, []);
+
+    const fetchProducts = async () => {
+        const response = await commerce.products.list();
+        setProducts(response.data); 
+        return response;
+    }
+
+    console.log(products);
+
     return (
         <>
-            <GlobalStyles />
-            <div>
-                <Navbar />
-                <Products />
-            </div>
+            <Navbar />
+            <Products />
         </>
     )
 }
 
-export default App;
+export default App
+
+// TODO:
+
+// ADD PRODUCTS TO COMMERCE.JS

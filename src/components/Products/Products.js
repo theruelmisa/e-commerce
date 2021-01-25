@@ -1,5 +1,7 @@
 import React from 'react';
+import { Grid } from '@material-ui/core';
 import Product from './Product/Product';
+import useStyles from './styles';
 
 // Mock products for now
 const products = [
@@ -19,28 +21,28 @@ const products = [
     }
 ];
 
-
 const Products = () => {
+    const classes = useStyles();
 
-
-    const renderedProducts = products.map( product => {
-        return(
-            <div key={product.id}>
-                <Product 
-                    name={product.name} 
-                    description={product.description} 
-                    price={product.price}
-                    image={product.image}
-                />
-            </div>
-        )
-    });
-
-    return (
-        <div>
-            { renderedProducts }
-        </div>
-    )
+    return (  
+        <main className={ classes.content }> 
+            <div className={ classes.toolbar } />
+            <Grid container justify="center" spacing={6}>
+                {
+                    products.map( product => (
+                        <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+                            <Product 
+                                name={product.name}
+                                price={product.price}
+                                description={product.description}
+                                image={product.image}
+                            />
+                        </Grid>
+                    ))
+                }
+            </Grid>
+        </main>
+    );
 }
 
 export default Products;
