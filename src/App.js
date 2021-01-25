@@ -32,4 +32,4 @@ export default App
 
 // TODO:
 
-// ADD PRODUCTS TO COMMERCE.JS
+// ADD PRODUCTS TO COMMERCE.JS (at least 9)
