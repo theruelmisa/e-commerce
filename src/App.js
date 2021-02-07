@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { commerce } from './lib/commerce';
 import { Navbar, Products, Cart } from './components';
 
@@ -22,18 +23,48 @@ const App = () => {
     }
 
     const addToCartHandler = async ( productId, quantity ) => {
-        const item = await commerce.cart.add( productId, quantity );
-        setCart(item.cart);
+        const { cart } = await commerce.cart.add( productId, quantity );
+        setCart( cart );
     }
 
-    console.log(cart)
+    const updateCartQuantityHandler = async ( productId, quantity ) => {
+        const { cart } = await commerce.cart.update( productId, { quantity });
+
+        setCart( cart );
+    }
+
+    const removeFromCartHandler = async ( productId ) => {
+        const { cart } = await commerce.cart.remove( productId );
+
+        setCart( cart )
+    }
+
+    const emptyCartHandler = async () => {
+        const { cart } = await commerce.cart.empty();
+
+        setCart( cart );
+    }
 
     return ( 
-        <div>
-            <Navbar totalItems={ cart.total_items } />
-            {/* <Products products={ products } onAddToCart={addToCartHandler} /> */}
-            <Cart cart={ cart } />
-        </div>
+        <Router>
+            <div>
+                <Navbar totalItems={ cart.total_items } />
+                <Switch>
+                    <Route exact path="/">
+                        <Products products={ products } onAddToCart={addToCartHandler} />
+                    </Route>
+                    <Route exact path="/cart">
+                        <Cart 
+                            cart={ cart } 
+                            onUpdateCartQuantity={ updateCartQuantityHandler }
+                            onRemoveFromCart={ removeFromCartHandler } 
+                            onEmptyCart= { emptyCartHandler }
+                        />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+        
     );
 }
 
