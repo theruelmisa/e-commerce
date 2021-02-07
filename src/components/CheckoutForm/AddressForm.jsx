@@ -5,7 +5,7 @@ import { commerce } from '../../lib/commerce';
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, next }) => {
     const [ shippingCountries, setShippingCountries ] = useState([]);
     const [ shippingCountry, setShippingCountry ] = useState('');
     const [ shippingProvinces, setShippingProvinces ] = useState([]);
@@ -55,11 +55,13 @@ const AddressForm = ({ checkoutToken }) => {
         response.length && setShippingOption( response[0].id );
     }
 
+    
+
     return (
         <>
             <Typography variant="h6" gutterBottom>Shipping Address</Typography>
             <FormProvider { ...methods }>
-                <form onSubmit=''>
+                <form onSubmit={ methods.handleSubmit( data => next( { ...data, shippingCountry, shippingProvince, shippingOption })) }>
                     <Grid container spacing={3}>
                         <FormInput name="firstName" label="First Name" />
                         <FormInput name="lastName" label="Last Name" />
