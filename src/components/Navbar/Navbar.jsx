@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Badge, Menu, MenuItem, Typography } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import useStyles from './styles';
-import logo from '../../assets/pili_logo.png';
 
 const Navbar = ({ totalItems }) => {
     const classes = useStyles();
@@ -15,8 +14,7 @@ const Navbar = ({ totalItems }) => {
             <AppBar position="fixed" className={ classes.appBar } color="inherit">
                 <Toolbar>
                     <Typography component={Link} to="/" variant="h6" className={ classes.title } color="inherit">
-                        <img src={logo} alt="Commerce.js" height="25px" className={ classes.image } />
-                        Pili
+                        Swimfan
                     </Typography>
                     <div className={ classes.grow } />
                     <div className={ classes.button }>
