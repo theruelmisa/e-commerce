@@ -96,3 +96,8 @@ const App = () => {
 }
 
 export default App;
+
+// TODO:
+// 1. change styling
+// 2. Add a landing page
+// 3. place products in a products page
