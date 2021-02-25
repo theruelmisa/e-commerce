@@ -19,6 +19,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error  }) => {
     const history = useHistory();
 
     useEffect( () => {
+        
         generateToken();
     }, [cart]);
 
@@ -31,6 +32,8 @@ const Checkout = ({ cart, order, onCaptureCheckout, error  }) => {
             history.pushState('/');
         }
     };
+
+    
 
     const nextStep = () => setActiveStep( prevActiveStep => prevActiveStep + 1);
     const prevStep = () => setActiveStep( prevActiveStep => prevActiveStep - 1);

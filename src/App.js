@@ -8,7 +8,7 @@ const App = () => {
     const [ cart, setCart ] = useState({});
     const [ order, setOrder ] = useState({});
     const [ errorMessage, setErrorMessage ] = useState('');
-
+    
     useEffect(() => {
         fetchProducts();
         fetchCart();
