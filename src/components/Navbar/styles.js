@@ -6,15 +6,17 @@ export default makeStyles((theme) => ({
 
     appBar: {
         boxShadow: 'none',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
         [theme.breakpoints.up('sm')]: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
         },
+        backgroundColor: 'inherit',
+        position: 'sticky',
+        top: 0,
+        left: 0,
     },
 
     title: {
-        flexGrow: 1,
         alignItems: 'center',
         display: 'flex',
         textDecoration: 'none',
@@ -73,6 +75,15 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
         width: '20ch',
         },
+    },
+
+    iconButton: {
+
+        color: '#FEC5BB',
+
+        '&:hover': {
+            backgroundColor: '#FAE1DD',
+        }
     },
     
 }));

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { commerce } from './lib/commerce';
 import { Navbar, Products, Cart, Checkout } from './components';
 
+import './App.css';
+
 const App = () => {
     const [ products, setProducts ] = useState([]);
     const [ cart, setCart ] = useState({});
