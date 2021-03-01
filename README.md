@@ -1,4 +1,4 @@
-# Swimcommerce [![Netlify Status](https://api.netlify.com/api/v1/badges/cb41f62d-2ccc-4aca-8dd7-124813693d92/deploy-status)](https://app.netlify.com/sites/swimfan/deploys)
+# Swimcommerce [![Netlify Status](https://api.netlify.com/api/v1/badges/18d1235e-3266-4840-b9e7-2c1abc2583ac/deploy-status)](https://app.netlify.com/sites/swimcommerce/deploys)
 
 **Swimcommerce** is a basic e-commerce platform built with _ReactJS, MaterialUI, Commerce.js, Stripe_. _This is just an MVP and project is currently ongoing. Suggestions are welcomed!_
 
